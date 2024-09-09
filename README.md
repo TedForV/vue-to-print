@@ -1,4 +1,4 @@
-# vuePlugs_printjs
+# vue print with chart
 vue打印插件
 **使用方法**
 
@@ -23,5 +23,10 @@ this.$print(this.$refs.print) // 使用
 方法二. 自定义类名
 ```
 <div class="do-not-print-me-xxx">不要打印我</div>
-this.$print(this.$refs.print,{'no-print':'.do-not-print-me-xxx'}) // 使用
+this.$print(this.$refs.print,null,{'no-print':'.do-not-print-me-xxx'}) // 使用
+```
+方法三.附带echart图表
+```
+<div id="chart" class="chart-container"></div>
+this.$print(this.$refs.print,[{data: urlData, width: 100px,height:100px}],{chartContainer:'.chart-container'})
 ```
