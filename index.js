@@ -126,11 +126,17 @@ Print.prototype = {
       f = document.body.appendChild(iframe);
     iframe.id = "myIframe";
     //iframe.style = "position:absolute;width:0;height:0;top:-10px;left:-10px;";
-    iframe.setAttribute(
-      "style",
-      // "position:absolute;width:0;height:0;top:-10px;left:-10px;"
-      "position:absolute;width:1000px;height:800px;top:100px;left:100px;overflow:auto;"
-    );
+    if(this.options.isDebug){
+      iframe.setAttribute(
+        "style",
+        "position:absolute;width:1000px;height:800px;top:100px;left:100px;overflow:auto;"
+      );
+    }else{
+      iframe.setAttribute(
+        "style",
+        "position:absolute;width:0;height:0;top:-10px;left:-10px;"
+      );
+    }
     w = f.contentWindow || f.contentDocument;
     doc = f.contentDocument || f.contentWindow.document;
     doc.open();
